@@ -12,9 +12,11 @@ This is the development of a low-cost weather station. Low cost is related to po
 - RTC DS3231
 - SD CARD MODULE
 - HTU21D SENSOR
-- 3 10K OHMS RESISTORS
-- 1 0.5UF CAPACITOR
+- 2 10K OHMS RESISTORS
+- 1 1k OHM RESISTOR
+- 1 50K OHMS RESISTOR
+- 1 BIPOLAR JUNCTION TRANSISTOR
 
 ## Schematic
 
-![Test Image 1](figures/Schematic.svg)
+![Schematic](figures/Schematic.svg)
