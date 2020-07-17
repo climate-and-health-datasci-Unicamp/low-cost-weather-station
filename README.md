@@ -2,7 +2,7 @@
 
 ## Description
 
-This is a development of a low cost weather station. Low cost is realated to power consumption and price. The components used in this project are relatively cheap for regular customers costing around 5-6 dollars the total price. In terms of power consumption, the code has been developed to cunsume the minumum as it is possible using the deepsleep mode provided for ESP8266.
+This is a development of a low cost weather station. Low cost is realated to power consumption and price. The components used in this project are relatively cheap for regular customers costing around 5-6 dollars the total price. In terms of power consumption, the code has been developed to consume the minumum energy as possible using deepsleep mode provided for ESP8266.
 
 ## List of Components
 
