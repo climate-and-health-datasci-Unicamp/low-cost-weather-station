@@ -13,9 +13,7 @@ This is the development of a low-cost weather station. Low cost is related to po
 - SD CARD MODULE
 - HTU21D SENSOR
 - 2 10K OHMS RESISTORS
-- 1 1k OHM RESISTOR
-- 1 50K OHMS RESISTOR
-- 1 BIPOLAR JUNCTION TRANSISTOR
+- 1 CMOS INVERTER GATE
 
 ## Schematic
 
