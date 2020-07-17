@@ -2,4 +2,4 @@
 
 ## Schematic
 
-![Test Image 1]("figures/Schematic.svg")
+![Test Image 1](figures/Schematic.svg)
