@@ -1,7 +1,6 @@
 #include <Wire.h>
 #include <RtcDS3231.h>
 #include <Adafruit_HTU21DF.h>
-#include <PString.h>
 #include <SD.h>
 #include <EEPROM.h>
 
