@@ -58,9 +58,9 @@ void setup ()
         EEPROM.commit();//Salva o dado na EEPROM.
 
         int year = 2020;
-        int month = 7;
-        int dayOfMonth = 14;
-        int hour = 0;
+        int month = 8;
+        int dayOfMonth = 3;
+        int hour = 20;
         int minute = 0;
         int second = 0;
         const RtcDateTime* now = new RtcDateTime(year, month, dayOfMonth, hour, minute, second);
@@ -121,5 +121,5 @@ void loop ()
         dataFile.close();
     }
     
-    ESP.deepSleep(0, WAKE_RF_DEFAULT); //Put esp8266 to sleep
+    ESP.deepSleep(0, WAKE_RF_DEFAULT); //Put esp8266 to sleep for an undefined time
 }
