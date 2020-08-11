@@ -13,7 +13,9 @@ This is the development of a low-cost weather station. Low cost is related to po
 - SD CARD MODULE
 - HTU21D SENSOR
 - 3 10K OHMS RESISTORS
-- 1 0.5uF CAPACITOR
+- 1 5uF CAPACITOR
+- 2 10uF CAPACITOR
+- 1 VOLTAGE REGULATOR HTL333
 
 ## Schematic
 
