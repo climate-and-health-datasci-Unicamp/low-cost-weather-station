@@ -15,7 +15,7 @@ This is the development of a low-cost weather station. Low cost is related to po
 - 3 10kΩ RESISTORS
 - 1 5uF CAPACITOR
 - 2 10uF CAPACITOR
-- 1 VOLTAGE REGULATOR HTL333
+- 1 VOLTAGE REGULATOR HT7333
 
 ## Block Diagram
 
