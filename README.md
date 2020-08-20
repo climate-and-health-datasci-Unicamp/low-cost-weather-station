@@ -19,11 +19,11 @@ This is the development of a low-cost weather station. Low cost is related to po
 
 ## Block Diagram
 
-![Block Diagram](figures/Block_Diagram.png)
+<center><img src="figures/Block_Diagram.png" alt="drawing" width="750" height="500"></center>
 
 ## Schematic
 
-![Schematic](figures/Schematic.svg)
+<center><img src="figures/Schematic.svg" alt="drawing" width="750" height="500"></center>
 
 ## Circuit Explanation
 
