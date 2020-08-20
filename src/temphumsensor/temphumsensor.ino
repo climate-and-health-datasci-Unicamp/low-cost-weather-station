@@ -3,6 +3,7 @@
 #include <Adafruit_HTU21DF.h>
 #include <SD.h>
 #include <EEPROM.h>
+#include <ESP8266WiFi.h>
 
 Adafruit_HTU21DF htu; //temperature and humidity sensor object
 RtcDS3231<TwoWire> Rtc(Wire); //RTC object
@@ -10,14 +11,20 @@ RtcDS3231<TwoWire> Rtc(Wire); //RTC object
 //pino ligado ao CS do módulo SD Card
 #define CS_PIN  D8
 #define sec 1000
+#define VCC_PIN D3
 
 void setup () 
 {   
+    pinMode(VCC_PIN, OUTPUT);
+    digitalWrite(VCC_PIN, HIGH); //turn off power suplly for sensors, rtc and sd module.
+    
     htu.begin(); // Inicia sensor de temperatura e umidade
     //Serial.begin(115200); // Inicia porta serial
     Rtc.Begin(); // Inicia RTC
     EEPROM.begin(4);//Inicia a EEPROM com tamanho de 4 Bytes (minimo).
-
+    WiFi.mode( WIFI_OFF );
+    WiFi.forceSleepBegin();
+    
     // verifica se o cartão SD está presente e se pode ser inicializado
     if (!SD.begin(CS_PIN)) 
     {
@@ -121,5 +128,6 @@ void loop ()
         dataFile.close();
     }
     
-    ESP.deepSleep(0, WAKE_RF_DEFAULT); //Put esp8266 to sleep for an undefined time
+    digitalWrite(VCC_PIN, LOW); // turn off power suplly for sensors, rtc and sd module. RTC will still work on battery.
+    ESP.deepSleep(0, WAKE_RF_DISABLED); //Put esp8266 to sleep for an undefined time
 }
