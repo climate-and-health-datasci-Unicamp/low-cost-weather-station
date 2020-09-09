@@ -1,4 +1,4 @@
-# Low-Cost-Weather-Station
+# Low Cost Weather Station
 
 ## Description
 
