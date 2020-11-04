@@ -2,13 +2,13 @@
 #include <EEPROM.h>
 #include <RtcDS3231.h>
 #include <Adafruit_HTU21DF.h>
-
 #include <SPI.h>
-//#include <SD.h>
 #include "SdFat.h"
-SdFat SD;
+#include "macros.hpp"
 
 #define SD_CS_PIN D8
+
+SdFat SD;
 File dataFile;
 File logFile;
 
@@ -16,25 +16,20 @@ Adafruit_HTU21DF htu; //temperature and humidity sensor object
 RtcDS3231<TwoWire> Rtc(Wire); //RTC object
 
 #define sec 1000
-
-//Macros for date
-#define year 2020
-#define month 8
-#define dayOfMonth 3
-#define hour 20
-#define minute 0
-#define second 0
     
 void setup () 
 {   
     
     htu.begin(); // Inicia sensor de temperatura e umidade                                  
-    Serial.begin(115200); // Inicia porta serial
+    //Serial.begin(115200); // Inicia porta serial
     Rtc.Begin(); // Inicia RTC
     EEPROM.begin(4);//Inicia a EEPROM com tamanho de 4 Bytes (minimo).
     
     // verifica se o cartão SD está presente e se pode ser inicializado
-    if (!SD.begin(SD_CS_PIN)) return;
+    //if (!) Serial.println("ERRO NA ABERTURA");
+    
+    //Inicializa cartao SD
+    SD.begin(SD_CS_PIN);
     
     RtcDateTime compiled = RtcDateTime(__DATE__, __TIME__);
     if (!Rtc.IsDateTimeValid()) Rtc.SetDateTime(compiled);
@@ -47,7 +42,7 @@ void setup ()
     if (ison)
     {
         RtcDateTime now = Rtc.GetDateTime();
-        RtcDateTime alarmTime = now+30;//3600; // it adds 1h
+        RtcDateTime alarmTime = now+3600; // it adds 1h
         DS3231AlarmOne alarm1(
                 alarmTime.Day(),
                 alarmTime.Hour(),
@@ -68,7 +63,6 @@ void setup ()
             logFile.print('-');
             if (now.Day() < 10) logFile.print("0");
             logFile.print(now.Day(), DEC);
-
             
             //fecha o arquivo após usá-lo
             logFile.close();
@@ -84,10 +78,10 @@ void setup ()
         if (logFile) 
         {
             
-            logFile.println("ID da Estacao: 1");
-            logFile.println("Nome da Estacao: APTO Vila Prost Souza");
-            logFile.println("Coordenadas Geograficas (Lat, Lng): -22.899874, -47.093644");
-            logFile.println("Elevacao (em metros): 695");
+            logFile.print("ID da Estacao: ");logFile.println(ID,DEC);
+            logFile.print("Nome da Estacao: ");logFile.println(" APTO Vila Prost Souza");
+            logFile.print("Coordenadas Geograficas (Lat, Lng): ");logFile.print(LAT,DEC);logFile.print(", ");logFile.println(LNG,DEC);
+            logFile.print("Elevacao (em metros): ");logFile.println(ELEVATION,DEC);
             logFile.print("Data de Inicio: ");
 
             logFile.print(year, DEC);
@@ -107,7 +101,6 @@ void setup ()
             if (dayOfMonth < 10) logFile.print("0");
             logFile.print(dayOfMonth, DEC);
 
-            
             //fecha o arquivo após usá-lo
             logFile.close();
         }
@@ -118,7 +111,7 @@ void setup ()
         const RtcDateTime* now = new RtcDateTime(year, month, dayOfMonth, hour, minute, second);
         Rtc.SetDateTime(*now);
     
-        RtcDateTime alarmTime = *now+30;//3600; // it adds 1h
+        RtcDateTime alarmTime = *now+3600; // it adds 1h
         DS3231AlarmOne alarm1(
                 alarmTime.Day(),
                 alarmTime.Hour(),
@@ -173,6 +166,5 @@ void loop ()
         dataFile.close();
     }
 
-    delay(500);
-    //ESP.deepSleep(0, WAKE_RF_DEFAULT); //Put esp8266 to sleep for an undefined time
+    ESP.deepSleep(0, WAKE_RF_DEFAULT); //Put esp8266 to sleep for an undefined time
 }
