@@ -26,8 +26,6 @@ location of the station and the date to initiate the measurements.
 const char* ssid = "xxxxx"; //Enter SSID
 const char* password = "xxxxx"; //Enter Password
 const char* server_ip = "xxxx";
-const int port = 8080;
-
-//const char* websockets_server = "52.224.66.43:8080/"; //server adress and port
+const int port = 0000;
 
 #endif
