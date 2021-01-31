@@ -35,7 +35,7 @@ For a better understanding of the circuit, it is quite recommended to read the d
 
 ## Tutorial
 
-At [here](./tutorial.pdf) you can find the instructions to put the weather station up and running.
+At [Tutorial](./Tutorial.pdf) you can find the instructions to put the weather station up and running.
 
 ## PCB Design
 
