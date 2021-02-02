@@ -23,8 +23,11 @@ location of the station and the date to initiate the measurements.
 #define LNG -47.093644
 #define ELEVATION 695
 
+//WIFI Credentials
 const char* ssid = "xxxxx"; //Enter SSID
 const char* password = "xxxxx"; //Enter Password
+
+//Server Parameters
 const char* server_ip = "xxxx";
 const int port = 0000;
 
