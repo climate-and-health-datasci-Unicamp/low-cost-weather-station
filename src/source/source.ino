@@ -39,7 +39,7 @@ void setup ()
     if (ison)
     {
         RtcDateTime now = Rtc.GetDateTime();
-        RtcDateTime alarmTime = now+60; // it adds 1h
+        RtcDateTime alarmTime = now+3600; // it adds 1h
         DS3231AlarmOne alarm1(
                 alarmTime.Day(),
                 alarmTime.Hour(),
@@ -126,7 +126,7 @@ void setup ()
         const RtcDateTime* now = new RtcDateTime(year, month, dayOfMonth, hour, minute, second);
         Rtc.SetDateTime(*now);
     
-        RtcDateTime alarmTime = *now+60; // it adds 1h
+        RtcDateTime alarmTime = *now+3600; // it adds 1h
         DS3231AlarmOne alarm1(
                 alarmTime.Day(),
                 alarmTime.Hour(),
